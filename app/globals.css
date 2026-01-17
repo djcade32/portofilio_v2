@@ -1,26 +1,75 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --accent: #ffbb36;
+  --secondary: #9ca3af;
+  --card: #1a1a1a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit-var);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card);
+  --font-outfit: var(--font-outfit-var);
+  --font-space-grotesk: var(--font-space-grotesk-var);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--accent), rgb(254 165 57));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+@layer base {
+  * {
+    @apply font-outfit;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-space-grotesk;
+  }
+}
+
+@layer components {
+  .chart-pattern {
+    background-image:
+      linear-gradient(rgba(254, 165, 57, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(254, 165, 57, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
 }
