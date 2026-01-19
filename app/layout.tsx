@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     "I build scalable web products with strong technical foundations, clear product thinking, and long-term leverage in mind.",
 };
 
+/**
+ * Application root layout that sets global font variables, renders the navigation bar, and wraps page content.
+ *
+ * @param children - The page content to render inside the layout's main element.
+ * @returns The root JSX element representing the document's HTML and body structure containing the Navbar and main content.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
