@@ -6,7 +6,7 @@ interface props {
 }
 
 const Button = ({ type = "Primary", children }: props) => {
-  const classes: { [type]: string } = {
+  const classes: Record<"Primary" | "Secondary" | "Ghost", string> = {
     Primary: "bg-accent text-background hover:opacity-90",
     Ghost: "transparent hover:bg-accent hover:text-background border-2 border-accent text-accent",
     Secondary: "bg-secondary hover:opacity-90",
