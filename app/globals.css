@@ -34,6 +34,10 @@
   @apply bg-[#0a0a0a]/50 bg-clip-padding backdrop-filter backdrop-blur-xl border-b border-secondary;
 }
 
+@utility glow {
+  box-shadow: 0 4px 30px rgba(255, 181, 61, 0.1);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -84,5 +88,9 @@ nav {
       linear-gradient(rgba(254, 165, 57, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(254, 165, 57, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+
+  .sparkline {
+    @apply opacity-[.08] h-25 absolute bottom-0 left-0 right-0 text-accent;
   }
 }
