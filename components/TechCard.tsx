@@ -13,7 +13,7 @@ const TechCard = ({ name, icon, iconColor }: Props) => {
       <div className="mx-auto mb-4 flex items-center justify-center">
         {React.createElement(icon, {
           size: 80,
-          className: `${iconColor}`,
+          ...(iconColor && { className: iconColor }),
         })}
       </div>
       <h3 className="font-semibold text-lg">{name}</h3>
