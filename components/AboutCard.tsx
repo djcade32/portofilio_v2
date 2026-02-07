@@ -9,21 +9,14 @@ interface Props {
 }
 
 const AboutCard = ({ title, description, icon, filledIcon = false }: Props) => {
-  const iconProp = () => {
-    let prop: LucideProps = {
-      size: 40,
-      className: "text-accent",
-    };
-    if (filledIcon) {
-      prop = {
-        ...prop,
-        fill: "var(--accent)",
-        strokeWidth: 1,
-        color: "#312A1F",
-      };
-    }
-
-    return prop;
+  const iconProps: LucideProps = {
+    size: 40,
+    className: "text-accent",
+    ...(filledIcon && {
+      fill: "var(--accent)",
+      strokeWidth: 1,
+      color: "#312A1F",
+    }),
   };
 
   return (
@@ -34,7 +27,7 @@ const AboutCard = ({ title, description, icon, filledIcon = false }: Props) => {
       </svg>
       <div className="relative z-10">
         <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
-          {React.createElement(icon, iconProp())}
+          {React.createElement(icon, iconProps)}
         </div>
         <h3 className="text-2xl font-bold mb-4">{title}</h3>
         <p className="text-gray-400 leading-relaxed">{description}</p>
