@@ -30,7 +30,7 @@ const AboutCard = ({ title, description, icon, filledIcon = false }: Props) => {
     <div className="bg-card border border-secondary rounded-2xl p-10 relative overflow-hidden group hover:border-accent/50 transition">
       <div className="absolute inset-0 chart-pattern opacity-30"></div>
       <svg className="absolute bottom-0 right-0 w-64 h-32 opacity-5" viewBox="0 0 200 100">
-        <path d="M0,80 Q50,20 100,50 T200,40" stroke="#fbb53d" stroke-width="2" fill="none"></path>
+        <path d="M0,80 Q50,20 100,50 T200,40" stroke="#fbb53d" strokeWidth="2" fill="none"></path>
       </svg>
       <div className="relative z-10">
         <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
