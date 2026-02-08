@@ -16,7 +16,7 @@ import {
 type TechItem = {
   name: string;
   Icon: IconType;
-  iconColor: string; // Tailwind text color class
+  iconColor: string;
 };
 
 const TECH_STACK: TechItem[] = [

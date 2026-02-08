@@ -38,10 +38,21 @@
   box-shadow: 0 4px 30px rgba(255, 181, 61, 0.1);
 }
 
+@utility shimmer {
+  @apply relative overflow-hidden before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-[linear-gradient(90deg,transparent,rgba(255,181,61,0.1),transparent)] before:transition-[left] before:duration-500 before:ease-in-out hover:before:left-full;
+}
+
 @utility tech-card {
   @apply transition-all duration-300 ease-in-out;
   &:hover {
-    @apply -translate-y-2 shadow-[0_20px_40px_rgba(254,165,57,0.3)];
+    @apply -translate-y-2 shadow-[0_20px_40px_rgba(255,181,61,0.3)];
+  }
+}
+
+@utility project-card {
+  @apply transition-all duration-300 ease-in-out shimmer;
+  &:hover {
+    @apply -translate-y-3 shadow-[0_30px_60px_rgba(255,181,61,0.3)];
   }
 }
 
