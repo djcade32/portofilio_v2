@@ -7,16 +7,12 @@ interface Props {
 }
 
 const ProjectCard = ({ project }: Props) => {
-  const { title, image, description, techStack, liveDemoUrl, githubRepoUrl } = project;
+  const { title, image, description, techStack, liveDemoUrl, githubRepoUrl, imageAlt } = project;
 
   return (
-    <div className="project-card bg-card border border-secondary rounded-2xl grid grid-cols-2">
-      <div className="h-100 overflow-hidden">
-        <img
-          className="w-full h-full object-cover"
-          src={image}
-          alt="modern productivity app interface with lofi music player, dark theme, clean UI design, dashboard view"
-        />
+    <div className="project-card bg-card border border-secondary rounded-2xl grid grid-cols-1 md:grid-cols-2">
+      <div className="h-full overflow-hidden">
+        <img className="w-full h-full object-cover" src={image} alt={imageAlt || title} />
       </div>
       <div className="p-10 flex flex-col justify-center">
         <div className="flex items-center gap-3 mb-4">
@@ -29,7 +25,10 @@ const ProjectCard = ({ project }: Props) => {
         <p className="text-gray-400 mb-6 leading-relaxed">{description}</p>
         <div className="flex flex-wrap gap-2 mb-6">
           {techStack.map((tech) => (
-            <span className="px-3 py-1 bg-background border border-accent/30 rounded-full text-sm text-accent">
+            <span
+              key={tech}
+              className="px-3 py-1 bg-background border border-accent/30 rounded-full text-sm text-accent"
+            >
               {tech}
             </span>
           ))}
