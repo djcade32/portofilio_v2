@@ -1,18 +1,13 @@
 import AboutCard from "@/components/AboutCard";
 import React from "react";
 import { CodeXml, ChartLine, Palette, Rocket } from "lucide-react";
+import SectionTitle from "@/components/SectionTitle";
 
 const About = () => {
   return (
     <section id="about" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="text-center mb-20">
-          <span className="text-accent text-sm font-semibold tracking-wider uppercase">
-            About Me
-          </span>
-          <h2 className="text-5xl font-bold mt-4 mb-6">Building the Future, One Line at a Time</h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
-        </div>
+        <SectionTitle title="About Me" subtitle="Building the Future, One Line at a Time" />
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           <AboutCard
             title="Developer & Builder"
