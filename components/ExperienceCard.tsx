@@ -10,34 +10,32 @@ const ExperienceCard = ({ experience, justify = "left" }: Props) => {
 
   const dateRange = endYear ? `${startYear} - ${endYear}` : startYear.toString();
 
-  const rightSide =
-    justify === "right" ? (
-      <div className="text-left md:pl-8 lg:pl-12">
-        <div className="bg-background border border-secondary rounded-xl p-8 inline-block">
-          <span className="text-accent text-sm font-semibold">{dateRange}</span>
-          <h3 className="text-2xl font-bold mt-2 mb-3">{title}</h3>
-          <p className="text-gray-400">{description}</p>
-        </div>
-      </div>
-    ) : (
-      <div className="hidden md:flex ml-16 lg:ml-20">
-        <div className="timeline-dot"></div>
-      </div>
-    );
+  const card = (
+    <div className="bg-background border border-secondary rounded-xl p-8 inline-block">
+      <span className="text-accent text-sm font-semibold">{dateRange}</span>
+      <h3 className="text-2xl font-bold mt-2 mb-3">{title}</h3>
+      <p className="text-gray-400">{description}</p>
+    </div>
+  );
+
+  const dot = (dotClass: string) => (
+    <div className={`hidden md:flex ${dotClass}`}>
+      <div className="timeline-dot"></div>
+    </div>
+  );
 
   const leftSide =
     justify === "left" ? (
-      <div className="text-right md:pr-8 lg:pr-12">
-        <div className="bg-background border border-secondary rounded-xl p-8 inline-block">
-          <span className="text-accent text-sm font-semibold">{dateRange}</span>
-          <h3 className="text-2xl font-bold mt-2 mb-3">{title}</h3>
-          <p className="text-gray-400">{description}</p>
-        </div>
-      </div>
+      <div className="text-right md:pr-8 lg:pr-12">{card}</div>
     ) : (
-      <div className="hidden md:flex mr-16 lg:mr-20 justify-end">
-        <div className="timeline-dot"></div>
-      </div>
+      dot("mr-16 lg:mr-20 justify-end")
+    );
+
+  const rightSide =
+    justify === "right" ? (
+      <div className="text-left md:pl-8 lg:pl-12">{card}</div>
+    ) : (
+      dot("ml-16 lg:ml-20")
     );
 
   return (
