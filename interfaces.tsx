@@ -7,3 +7,10 @@ export interface Project {
   liveDemoUrl: string;
   githubRepoUrl: string;
 }
+
+export interface Experience {
+  title: string;
+  description: string;
+  startYear: number;
+  endYear?: number | "Present";
+}
