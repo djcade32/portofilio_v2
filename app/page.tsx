@@ -3,6 +3,7 @@ import Experience from "@/sections/Experience";
 import FeaturedWork from "@/sections/FeaturedWork";
 import Hero from "@/sections/Hero";
 import Tech from "@/sections/Tech";
+import Contact from "@/sections/Contact";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Tech />
       <FeaturedWork />
       <Experience />
+      <Contact />
     </main>
   );
 }
