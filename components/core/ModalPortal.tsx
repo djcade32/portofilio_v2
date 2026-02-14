@@ -8,9 +8,9 @@ export default function ModalPortal({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     setMounted(true);
-    document.body.style.overflow = "hidden";
+    const originalOverflow = document.body.style.overflow;
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = originalOverflow;
     };
   }, []);
 
