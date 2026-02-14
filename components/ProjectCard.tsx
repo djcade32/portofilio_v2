@@ -1,6 +1,7 @@
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { Project } from "@/interfaces";
+import Image from "next/image";
 
 interface Props {
   project: Project;
@@ -11,8 +12,8 @@ const ProjectCard = ({ project }: Props) => {
 
   return (
     <div className="project-card bg-card border border-secondary rounded-2xl grid grid-cols-1 md:grid-cols-2">
-      <div className="h-full overflow-hidden">
-        <img className="w-full h-full object-cover" src={image} alt={imageAlt || title} />
+      <div className="h-full overflow-hidden relative">
+        <Image className="w-full h-full object-cover" src={image} alt={imageAlt || title} fill />
       </div>
       <div className="p-10 flex flex-col justify-center">
         <div className="flex items-center gap-3 mb-4">

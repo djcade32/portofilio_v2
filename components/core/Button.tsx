@@ -7,6 +7,7 @@ type ButtonProps = {
   className?: string;
   children: React.ReactNode;
   asChild?: boolean;
+  disabled?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type AnchorLikeProps = {
@@ -14,6 +15,7 @@ type AnchorLikeProps = {
   className?: string;
   children: React.ReactNode;
   asChild: true;
+  disabled?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
 const Button = ({
@@ -21,6 +23,7 @@ const Button = ({
   children,
   className = "",
   asChild = false,
+  disabled = false,
   ...rest
 }: ButtonProps | AnchorLikeProps) => {
   const classes: Record<Variant, string> = {
@@ -30,7 +33,7 @@ const Button = ({
     Secondary: "bg-secondary hover:opacity-90",
   };
 
-  const base = "px-6 py-2.5 font-semibold rounded-lg transition cursor-pointer duration-200";
+  const base = `px-6 py-2.5 font-semibold rounded-lg transition cursor-pointer duration-200 ${disabled ? "opacity-50 hover:cursor-not-allowed hover:opacity-50!" : ""}`;
 
   const combined = `${base} ${classes[variant]} ${className}`.trim();
 
@@ -48,7 +51,11 @@ const Button = ({
 
   // Normal button
   return (
-    <button className={combined} {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
+    <button
+      className={combined}
+      {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
