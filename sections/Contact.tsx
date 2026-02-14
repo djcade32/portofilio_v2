@@ -2,8 +2,10 @@ import ContactForm from "@/components/ContactForm";
 import SectionTitle from "@/components/SectionTitle";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import SOCIALS from "@/content/socials";
 
 const SOCIAL_ICON_SIZE = "text-2xl";
+const { github, linkedin, x } = SOCIALS;
 
 const Contact = () => {
   return (
@@ -27,7 +29,7 @@ const Contact = () => {
           <div className="mt-10 pt-10 border-t border-secondary">
             <div className="flex items-center justify-center gap-8">
               <a
-                href="https://github.com/djcade32"
+                href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-accent transition"
@@ -36,7 +38,7 @@ const Contact = () => {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/norman-cade-268818167/"
+                href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-accent transition"
@@ -45,7 +47,7 @@ const Contact = () => {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://x.com/n_cade32"
+                href={x}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-accent transition"
