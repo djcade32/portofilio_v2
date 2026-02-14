@@ -8,11 +8,7 @@ import { BsFillSendFill } from "react-icons/bs";
 import { sendMessage } from "@/api/contactAPI";
 import { ToastContainer, toast } from "react-toastify";
 import { BadgeCheck, CircleAlert } from "lucide-react";
-
-function isValidEmail(email: string) {
-  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return pattern.test(email);
-}
+import { isValidEmail } from "./utils";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -25,22 +21,20 @@ const ContactForm = () => {
   }, [name, email, message]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    setSubmitting(true);
     e.preventDefault();
+    setSubmitting(true);
     let success = undefined;
     try {
       success = await sendMessage(name, email, message);
       if (success) {
-        setSubmitting(false);
         clearForm();
       }
     } catch (error) {
-      console.log(`Error sending email from ${email}: ${error}`);
+      console.log(`Failed sending message: ${error}`);
     } finally {
+      setSubmitting(false);
       showToast(success ? "success" : "error");
-      success
-        ? console.log(`Sent email from ${email}`)
-        : console.log(`Error sending email from ${email}`);
+      success ? console.log("Sent message Successfully") : console.log("Failed sending message");
     }
   };
 
@@ -51,7 +45,7 @@ const ContactForm = () => {
   };
 
   const showToast = (status: "success" | "error") =>
-    status
+    status === "success"
       ? toast.success("Sent Message", {
           position: "bottom-right",
           className: "bg-card! border! border-secondary! text-foreground!",
@@ -67,7 +61,7 @@ const ContactForm = () => {
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Name"
           type="text"

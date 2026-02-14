@@ -7,10 +7,15 @@ interface Props extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
 const Input = ({ label, placeholder, type, className, ...rest }: Props) => {
   return (
     <div>
-      {label && <label className="block text-sm font-semibold mb-2">{label}</label>}
+      {label && (
+        <label htmlFor={label} className="block text-sm font-semibold mb-2">
+          {label}
+        </label>
+      )}
       <input
+        id={label}
         type={type}
-        className={`contact-input w-full bg-background border border-secondary rounded-lg px-4 py-3 focus:outline-none transition ${className}`}
+        className={`contact-input w-full bg-background border border-secondary rounded-lg px-4 py-3 focus:outline-none transition ${className ?? ""}`}
         placeholder={placeholder}
         {...rest}
       />

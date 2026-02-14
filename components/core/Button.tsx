@@ -33,7 +33,7 @@ const Button = ({
     Secondary: "bg-secondary hover:opacity-90",
   };
 
-  const base = `px-6 py-2.5 font-semibold rounded-lg transition cursor-pointer duration-200 ${disabled && "opacity-50 hover:cursor-not-allowed hover:opacity-50!"}`;
+  const base = `px-6 py-2.5 font-semibold rounded-lg transition cursor-pointer duration-200 ${disabled ? "opacity-50 hover:cursor-not-allowed hover:opacity-50!" : ""}`;
 
   const combined = `${base} ${classes[variant]} ${className}`.trim();
 
@@ -45,7 +45,6 @@ const Button = ({
 
     return React.cloneElement(child as React.ReactElement<any>, {
       className: `${combined} ${(child as any).props?.className ?? ""}`.trim(),
-      disabled: disabled,
       ...rest,
     });
   }

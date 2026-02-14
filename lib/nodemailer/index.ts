@@ -6,11 +6,18 @@ type EmailMessageData = {
   message: string;
 };
 
+const email = process.env.NODEMAILER_EMAIL;
+const password = process.env.NODEMAILER_PASSWORD;
+
+if (!email || !password) {
+  throw new Error("Missing NODEMAILER_EMAIL or NODEMAILER_PASSWORD environment variables");
+}
+
 export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.NODEMAILER_EMAIL!,
-    pass: process.env.NODEMAILER_PASSWORD!,
+    user: email,
+    pass: password,
   },
 });
 
