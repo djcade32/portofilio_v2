@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/sections/Footer";
 
 const outfit = Outfit({
   variable: "--font-outfit-var",
@@ -29,6 +30,9 @@ export default function RootLayout({
       <body className={`${outfit.variable} ${spaceGrotesk.variable} antialiased`}>
         <Navbar />
         <main>{children}</main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

@@ -2,7 +2,6 @@
 
 import Button from "@/components/core/Button";
 import Link from "next/link";
-import React from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
