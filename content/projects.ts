@@ -8,7 +8,7 @@ const PROJECTS: Project[] = [
     image: `${IMAGE_BASE_URL}/stockwisp_screenshot.png`,
     description:
       "An AI-powered stock research and analysis platform focused on earnings transcripts, SEC filings, and market sentiment. StockWisp helps investors quickly surface insights, track watchlists, and identify high-conviction opportunities.",
-    techStack: ["Next.js", "Finnhub API", "Firebase", "AI"],
+    techStack: ["Next.js", "Finnhub API", "Firebase", "OpenAI"],
     liveDemoUrl: "https://www.stockwisp.com/",
     githubRepoUrl: "https://github.com/djcade32/stock-pulse",
   },

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./NavLink";
-import Button from "./core/Button";
+import ResumeButton from "./ResumeButton";
 
 const NAV_ITEMS = ["About", "Tech Stack", "Projects", "Experience", "Contact"];
 
@@ -18,7 +18,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <Button>Resume</Button>
+        <ResumeButton />
       </nav>
     </header>
   );

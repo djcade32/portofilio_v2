@@ -28,7 +28,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${spaceGrotesk.variable} antialiased`}>
         <Navbar />
-        <main>{children}</main>
+        <main>
+          {children}
+          <div id="modal-root" />
+        </main>
       </body>
     </html>
   );
