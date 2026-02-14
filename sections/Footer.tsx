@@ -3,18 +3,19 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import SOCIALS from "@/content/socials";
 
 const { github, linkedin, x } = SOCIALS;
-const currentYear = new Date().getFullYear();
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer id="footer" className="bg-card border-t border-secondary py-12">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex items-center justify-center md:justify-between">
+          <div className="text-center md:text-left">
             <div className="text-2xl font-bold text-gradient mb-2">Norman Cade</div>
             <p className="text-gray-500 text-sm">Software Developer &amp; Product Builder</p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <a
               href={github}
               target="_blank"
