@@ -87,9 +87,9 @@ const PDFViewer = ({ open, close }: Props) => {
             )}
 
             <Document file="/docs/resume.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-              <div className="overflow-y-scroll h-225">
+              <div className="overflow-y-scroll h-187.5">
                 {Array.from({ length: numPages ?? 1 }).map((_, idx) => (
-                  <Page key={idx + 1} pageNumber={idx + 1} height={900} />
+                  <Page key={idx + 1} pageNumber={idx + 1} height={750} />
                 ))}
               </div>
             </Document>

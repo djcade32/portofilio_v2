@@ -6,11 +6,12 @@ import { createPortal } from "react-dom";
 export default function ModalPortal({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
+  // Prevent scrolling in background
   useEffect(() => {
     setMounted(true);
-    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = originalOverflow;
+      document.body.style.overflow = "auto";
     };
   }, []);
 
