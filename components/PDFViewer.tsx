@@ -18,9 +18,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 interface Props {
   open: boolean;
   close: () => void;
+  pdfFileUrl: string;
 }
 
-const PDFViewer = ({ open, close }: Props) => {
+const PDFViewer = ({ open, close, pdfFileUrl }: Props) => {
   const isMobile = useIsMobile();
   const [numPages, setNumPages] = useState<number>();
   const [docLoaded, setDocLoaded] = useState(false);
@@ -74,11 +75,7 @@ const PDFViewer = ({ open, close }: Props) => {
 
                 <div className="flex justify-end my-2">
                   <Button variant="Ghost" className=" py-1! px-3!" asChild>
-                    <a
-                      href="/docs/resume.pdf"
-                      className="flex items-center gap-2"
-                      download="resume.pdf"
-                    >
+                    <a href={pdfFileUrl} className="flex items-center gap-2" download="resume.pdf">
                       Download <Download size={20} />
                     </a>
                   </Button>
@@ -86,7 +83,7 @@ const PDFViewer = ({ open, close }: Props) => {
               </>
             )}
 
-            <Document file="/docs/resume.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+            <Document file={pdfFileUrl} onLoadSuccess={onDocumentLoadSuccess}>
               <div className="overflow-y-scroll h-187.5">
                 {Array.from({ length: numPages ?? 1 }).map((_, idx) => (
                   <Page key={idx + 1} pageNumber={idx + 1} height={750} />

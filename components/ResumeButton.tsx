@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import Button from "./core/Button";
-import PDFViewer from "./PDFViewer";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import dynamic from "next/dynamic";
+
+const PDFViewer = dynamic(() => import("@/components/PDFViewer"), {
+  ssr: false,
+});
 
 const ResumeButton = () => {
   const [pdfViewerOpened, setPdfViewerOpened] = useState(false);
@@ -25,7 +29,11 @@ const ResumeButton = () => {
           "Resume"
         )}
       </Button>
-      <PDFViewer open={pdfViewerOpened} close={() => setPdfViewerOpened(false)} />
+      <PDFViewer
+        open={pdfViewerOpened}
+        close={() => setPdfViewerOpened(false)}
+        pdfFileUrl="/docs/resume.pdf"
+      />
     </>
   );
 };
