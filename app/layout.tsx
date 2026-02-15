@@ -26,10 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overscroll-y-none">
       <body className={`${outfit.variable} ${spaceGrotesk.variable} antialiased`}>
         <Navbar />
-        <main>{children}</main>
+        <main>
+          {children}
+          <div id="modal-root" />
+        </main>
         <footer>
           <Footer />
         </footer>

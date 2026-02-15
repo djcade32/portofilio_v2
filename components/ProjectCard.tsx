@@ -13,7 +13,13 @@ const ProjectCard = ({ project }: Props) => {
   return (
     <div className="project-card bg-card border border-secondary rounded-2xl grid grid-cols-1 md:grid-cols-2">
       <div className="h-full overflow-hidden relative">
-        <Image className="w-full h-full object-cover" src={image} alt={imageAlt || title} fill />
+        <Image
+          className="w-full h-full object-cover"
+          src={image}
+          alt={imageAlt || title}
+          height={250}
+          width={250}
+        />
       </div>
       <div className="p-10 flex flex-col justify-center">
         <div className="flex items-center gap-3 mb-4">
